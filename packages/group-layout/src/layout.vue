@@ -1,19 +1,24 @@
 <template>
-  <div>
-    {{ items }}
-  </div>
+	<div class="layout">
+		<group-table v-for="item in items" :key="item.id" :group="item" />
+	</div>
 </template>
 
 <script>
-  import mixin from "@directus/extension-toolkit/mixins/layout";
+	import GroupTable from "./group-table.vue";
+	import mixin from "@directus/extension-toolkit/mixins/layout";
 
-  export default {
-    mixins: [mixin]
-  }
+	export default {
+		mixins: [mixin],
+		components: {
+			GroupTable
+		}
+	};
 </script>
 
 <style lang="scss" scoped>
-div {
-  background-color: var(--red-300);
+.layout {
+	margin-top: var(--page-padding-top-table);
+	padding: 0 var(--page-padding);
 }
 </style>
